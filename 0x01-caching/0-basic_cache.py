@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """ Task 0. Module """
 from base_caching import BaseCaching
 
@@ -8,7 +8,7 @@ class BasicCache(BaseCaching):
     def __init__(self):
         ''' Initialize derived class with the parent class init method
         '''
-        BaseCaching.__init__(self)
+        super().__init__()
 
     def put(self, key, item):
         ''' Assign to the dictionary self.cache_data the item
