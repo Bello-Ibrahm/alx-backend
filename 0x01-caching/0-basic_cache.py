@@ -8,7 +8,7 @@ class BasicCache(BaseCaching):
     def __init__(self):
         ''' Initialize derived class with the parent class init method
         '''
-        super().__init__()
+        BaseCaching.__init__(self)
 
     def put(self, key, item):
         ''' Assign to the dictionary self.cache_data the item
