@@ -38,19 +38,18 @@ def get_user():
     Returns a user dictionary or None if ID value can't be found
     or if 'login_as' URL parameter was not found
     """
-    id = request.args.get('login_as', None)
-    if id is not None and int(id) in users.keys():
-        return users.get(int(id))
+    login_id = request.args.get('login_as')
+    if login_id:
+        return users.get(int(login_id))
     return None
 
 
 @app.before_request
-def before_request():
+def before_request() -> None:
     """
     Add user to flask.g if user is found
     """
-    user = get_user()
-    g.user = user
+    g.user = get_user()
 
 
 @babel.localeselector
